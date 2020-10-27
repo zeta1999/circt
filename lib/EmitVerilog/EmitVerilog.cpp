@@ -1504,8 +1504,8 @@ void ModuleEmitter::emitStatement(sv::IfDefOp op) {
   emitLocationInfoAndNewLine(ops);
 
   addIndent();
-  for (auto &op : op.getBodyBlock()->without_terminator())
-    emitOperation(&op);
+  for (auto &bb : op.getBodyBlock()->without_terminator())
+    emitOperation(&bb);
   reduceIndent();
 
   indent() << "#endif\n";
